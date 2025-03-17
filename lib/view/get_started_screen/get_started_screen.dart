@@ -165,7 +165,7 @@ class GetStartedScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 30),
                   Text(
-                    "v7..3.5 (257)",
+                    "v7.3.5 (257)",
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,

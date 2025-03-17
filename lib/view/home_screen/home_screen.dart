@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           title: Center(
             child: Column(
               children: [
-                Text("Sunday"),
+                Text("Sunday", style: TextStyle(fontWeight: FontWeight.w400)),
                 Text("March 02,2025", style: TextStyle(fontSize: 12)),
               ],
             ),

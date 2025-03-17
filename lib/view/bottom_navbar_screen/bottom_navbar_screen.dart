@@ -53,6 +53,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorConstants.lightGrey,
       body: screens[_bottomNavIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {

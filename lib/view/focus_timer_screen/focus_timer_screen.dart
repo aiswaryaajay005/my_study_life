@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:my_study_life/utils/constants/color_constants.dart';
-import 'package:my_study_life/view/focus_timer_screen/pomodoro_settings.dart';
-import 'package:my_study_life/view/menu_screen/menu_screen.dart';
 
 void main() {
   runApp(FocusTimerScreen());
@@ -26,11 +24,11 @@ class PomodoroTimer extends StatefulWidget {
 }
 
 class _PomodoroTimerState extends State<PomodoroTimer> {
-  static const int workDuration = 25 * 60; // 25 minutes
-  static const int breakDuration = 5 * 60; // 5 minutes
+  static const int workDuration = 25 * 60;
+  static const int breakDuration = 5 * 60;
   int remainingTime = workDuration;
   bool isRunning = false;
-  bool isWorkSession = true; // Track if it's work or break time
+  bool isWorkSession = true;
   Timer? timer;
 
   void startPauseTimer() {
@@ -80,30 +78,7 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstants.lightGrey,
-      appBar: AppBar(
-        // leading: IconButton(
-        //   onPressed: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(builder: (context) => PomodoroSettings()),
-        //     );
-        //   },
-        //   icon: Icon(Icons.settings_applications_sharp),
-        // ),
-        backgroundColor: ColorConstants.lightGrey,
-        centerTitle: true,
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {
-        //       Navigator.pushReplacement(
-        //         context,
-        //         MaterialPageRoute(builder: (context) => MenuScreen()),
-        //       );
-        //     },
-        //     icon: Icon(Icons.close),
-        //   ),
-        //],
-      ),
+      appBar: AppBar(backgroundColor: Colors.transparent),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -158,14 +133,7 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
 
               children: [
                 SizedBox(width: 80),
-                // ElevatedButton(
-                //   onPressed: startPauseTimer,
-                //   child: Icon(isRunning ? Icons.pause : Icons.play_arrow),
-                //   style: ElevatedButton.styleFrom(
-                //     backgroundColor: Colors.green,
-                //     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                //   ),
-                // ),
+
                 ElevatedButton(
                   onPressed: resetTimer,
                   child: Icon(Icons.refresh_outlined),

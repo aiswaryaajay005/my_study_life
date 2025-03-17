@@ -1,5 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:my_study_life/global_widgets/custom_button.dart';
 import 'package:my_study_life/global_widgets/reuseable_form_field.dart';
 import 'package:my_study_life/utils/constants/color_constants.dart';
@@ -126,7 +127,7 @@ Widget _buildProfilePicture() {
         child: CircleAvatar(
           radius: 13,
           backgroundColor: ColorConstants.selectBlue,
-          child: Icon(Icons.edit, color: Colors.white),
+          child: Icon(Symbols.border_color, color: Colors.white, size: 15),
         ),
       ),
     ],

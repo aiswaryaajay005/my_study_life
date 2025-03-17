@@ -11,7 +11,7 @@ class CalenderScreen extends StatefulWidget {
 }
 
 class _CalenderScreenState extends State<CalenderScreen> {
-  CalendarController _calendarController = CalendarController();
+  final CalendarController _calendarController = CalendarController();
 
   void _changeCalendarView(CalendarView view) {
     setState(() {
@@ -47,11 +47,6 @@ class _CalenderScreenState extends State<CalenderScreen> {
               onTap: () => _changeCalendarView(CalendarView.month),
             ),
 
-            // ListTile(
-            //   leading: Icon(Icons.calendar_view_month),
-            //   title: Text('Schedule View'),
-            //   onTap: () => _changeCalendarView(CalendarView.schedule),
-            // ),
             Divider(),
             Padding(
               padding: const EdgeInsets.only(left: 30, right: 30),
@@ -106,6 +101,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
         ),
       ),
       body: SfCalendar(
+        todayHighlightColor: ColorConstants.buttonBlue,
         controller: _calendarController,
         view: CalendarView.day,
         showNavigationArrow: true,
@@ -113,7 +109,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
         headerStyle: CalendarHeaderStyle(
           backgroundColor: ColorConstants.lightGrey,
           textAlign: TextAlign.center,
-          textStyle: TextStyle(backgroundColor: Colors.white, fontSize: 20),
+          textStyle: TextStyle(fontSize: 20),
         ),
         showTodayButton: true,
         cellEndPadding: 2,
