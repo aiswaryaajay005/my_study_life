@@ -47,41 +47,45 @@ class ForgotPassword extends StatelessWidget {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 50),
-                    Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.black,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 50),
+                      Text(
+                        "Forgot Password?",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                          color: ColorConstants.black,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "Enter your registered email and we'll send you a \npassword reset link.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.w300),
-                    ),
-                    SizedBox(height: 40),
-                    ReusableFormField(hintText: "Your Email"),
+                      SizedBox(height: 10),
+                      Text(
+                        "Enter your registered email and we'll send you a \npassword reset link.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontWeight: FontWeight.w300),
+                      ),
+                      SizedBox(height: 40),
+                      ReusableFormField(hintText: "Your Email"),
+                      SizedBox(height: 10),
 
-                    CustomButton(
-                      buttonText: "Send password reset link",
-                      onButtonPressed: () {},
-                    ),
-                    SizedBox(height: 36),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        "Back to login",
-                        style: TextStyle(color: ColorConstants.darkblue),
+                      CustomButton(
+                        buttonText: "Send password reset link",
+                        onButtonPressed: () {},
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 36),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          "Back to login",
+                          style: TextStyle(color: ColorConstants.darkblue),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

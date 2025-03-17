@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_study_life/global_widgets/calender_drawer_items.dart';
 import 'package:my_study_life/utils/constants/color_constants.dart';
-import 'package:my_study_life/view/bottom_navbar_screen/bottom_navbar_screen.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class CalenderScreen extends StatefulWidget {
@@ -18,14 +17,14 @@ class _CalenderScreenState extends State<CalenderScreen> {
     setState(() {
       _calendarController.view = view;
     });
-    Navigator.pop(context); // Close the drawer after selection
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstants.lightGrey,
-      appBar: AppBar(title: Text("Calendar View")),
+      appBar: AppBar(title: Text(""), backgroundColor: Colors.transparent),
       drawer: Drawer(
         backgroundColor: Colors.white,
         child: ListView(
@@ -63,11 +62,13 @@ class _CalenderScreenState extends State<CalenderScreen> {
                     borderClr: ColorConstants.darkclass,
                     boxColor: Colors.green.shade50,
                     title: "Classes",
+                    boxFill: ColorConstants.darkclass,
                   ),
                   SizedBox(height: 10),
                   CalendarDrawerItem(
                     borderClr: ColorConstants.darkExam,
                     boxColor: ColorConstants.lightExam,
+                    boxFill: ColorConstants.darkExam,
                     title: "Exams",
                   ),
                   SizedBox(height: 10),
@@ -75,9 +76,11 @@ class _CalenderScreenState extends State<CalenderScreen> {
                     borderClr: ColorConstants.darkTasks,
                     boxColor: ColorConstants.lightTasks,
                     title: "Tasks",
+                    boxFill: ColorConstants.darkTasks,
                   ),
                   SizedBox(height: 10),
                   CalendarDrawerItem(
+                    boxFill: ColorConstants.darkHolidays,
                     borderClr: ColorConstants.darkHolidays,
                     boxColor: ColorConstants.lightHolidays,
                     title: "Holidays",
@@ -86,10 +89,12 @@ class _CalenderScreenState extends State<CalenderScreen> {
                   CalendarDrawerItem(
                     borderClr: ColorConstants.darkXtra,
                     boxColor: ColorConstants.lightXtra,
+                    boxFill: ColorConstants.darkXtra,
                     title: "Xtra",
                   ),
                   SizedBox(height: 10),
                   CalendarDrawerItem(
+                    boxFill: ColorConstants.darkIcals,
                     borderClr: ColorConstants.darkIcals,
                     boxColor: ColorConstants.lightIcals,
                     title: "ICal",

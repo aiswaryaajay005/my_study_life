@@ -13,6 +13,8 @@ dependencies:
   syncfusion_flutter_calendar: ^28.2.9
   animated_bottom_navigation_bar: ^1.4.0
   dotted_border: ^2.1.0
+  material_symbols_icons: ^4.2810.1
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:

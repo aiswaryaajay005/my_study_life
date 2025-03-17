@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ColorConstants {
   static const Color buttonBlue = Color(0xff0093f3);
   static const Color lightGrey = Color(0xfff2f6f7);
+  static const Color lightGrey4 = Color(0xfff2f7fb);
   static const Color lightGrey1 = Color(0xff9e9e9e);
   static const Color lightGrey2 = Color(0xffb7b7b7);
   static const Color unSelectGrey = Color(0xff959595);
@@ -36,6 +37,12 @@ class ColorConstants {
   static const Color darkPink = Color(0xffd54879);
   static const Color darkGreen = Color(0xff67caa3);
   static const Color darkPurple = Color(0xffa278c0);
+  static const Color darkestBlue = Color(0xff101169);
+  static const Color darkestBlue2 = Color(0xff1665c5);
+  static const Color darkestBlue3 = Color(0xff005ed2);
+  static const Color darkestBlue4 = Color(0xff151765);
+  static const Color darkestBlue5 = Color(0xff1d2f5d);
+  static const Color darkestBlue6 = Color(0xff011b4e);
   //52d299
-  //##202020#b7b7b7   7da09c #f2f6f7 ddebf6
+  //##202020#b7b7b7   7da09c #f2f6f7 ddebf6 //101169
 } //e6f4ff //

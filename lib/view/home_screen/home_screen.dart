@@ -5,6 +5,7 @@ import 'package:my_study_life/view/home_screen/tabs/class_tab.dart';
 import 'package:my_study_life/view/home_screen/tabs/exam_tab.dart';
 import 'package:my_study_life/view/home_screen/tabs/icals_tab.dart';
 import 'package:my_study_life/view/home_screen/tabs/task_tab.dart';
+import 'package:my_study_life/view/search_screen/search_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,11 +26,20 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          centerTitle: true,
           actions: [
-            CircleAvatar(
-              radius: 30,
-              backgroundColor: Colors.white,
-              child: Icon(Icons.search),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
+              },
+              child: CircleAvatar(
+                radius: 30,
+                backgroundColor: Colors.white,
+                child: Icon(Icons.search),
+              ),
             ),
             SizedBox(width: 10),
           ],

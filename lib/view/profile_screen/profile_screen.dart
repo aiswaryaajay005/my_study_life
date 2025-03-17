@@ -1,7 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:my_study_life/utils/constants/color_constants.dart';
 import 'package:my_study_life/view/bottom_navbar_screen/bottom_navbar_screen.dart';
+import 'package:my_study_life/view/csv_screen/csv_screen.dart';
+import 'package:my_study_life/view/edit_profile_screen/edit_profile_screen.dart';
+import 'package:my_study_life/view/premium_subscription/premium_subscription.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -34,6 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     {"icon": Icons.military_tech, "title": "Premium Subscription"},
     {"icon": Icons.logout_outlined, "title": "Log out"},
   ];
+  List btmScreens = [CsvScreen(), PremiumSubscription(), PremiumSubscription()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,12 +51,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Center(child: Text("Profile")),
+                Center(child: Text("Profile", style: TextStyle(fontSize: 16))),
                 SizedBox(width: 140),
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.white,
-                  child: Icon(Icons.edit_sharp, color: Colors.black),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditProfileScreen(),
+                      ),
+                    );
+                  },
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.white,
+                    child: Icon(Symbols.border_color, color: Colors.black),
+                  ),
                 ),
                 SizedBox(width: 20),
               ],
@@ -63,34 +78,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
               "Aiswarya Ajayakumar",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
+            SizedBox(height: 5),
             Text(
               "aiswaryaajayakumar176@gmail.com",
               style: TextStyle(fontSize: 10),
             ),
+            SizedBox(height: 30),
             _buildGridViewBuilderMethod(),
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: Icon(
-                        tileItem[index]['icon'],
-                        color: ColorConstants.selectBlue,
-                      ),
-                      title: Text(tileItem[index]['title']),
-                      trailing: Icon(Icons.arrow_forward_ios_sharp),
-                    );
-                  },
-                ),
-              ),
+              child: _buildListLinks(),
             ),
             SizedBox(height: 20),
             Text(
@@ -106,9 +104,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  Container _buildListLinks() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: 3,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => btmScreens[index]),
+              );
+            },
+            child: ListTile(
+              leading: Icon(
+                tileItem[index]['icon'],
+                color: ColorConstants.selectBlue,
+              ),
+              title: Text(tileItem[index]['title']),
+              trailing: Icon(Icons.arrow_forward_ios_sharp),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   DottedBorder _buildProfilePicture() {
     return DottedBorder(
-      dashPattern: [3, 1],
+      dashPattern: [6],
       borderType: BorderType.Circle,
       color: ColorConstants.selectBlue,
       strokeWidth: 1,

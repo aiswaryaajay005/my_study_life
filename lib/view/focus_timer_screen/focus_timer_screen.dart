@@ -1,11 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:my_study_life/utils/constants/color_constants.dart';
-import 'package:my_study_life/view/bottom_navbar_screen/bottom_navbar_screen.dart';
-import 'package:my_study_life/view/calender_screen/calender_screen.dart';
-import 'package:my_study_life/view/home_screen/home_screen.dart';
+import 'package:my_study_life/view/focus_timer_screen/pomodoro_settings.dart';
 import 'package:my_study_life/view/menu_screen/menu_screen.dart';
-import 'package:my_study_life/view/profile_screen/profile_screen.dart';
 
 void main() {
   runApp(FocusTimerScreen());
@@ -22,6 +19,8 @@ class FocusTimerScreen extends StatelessWidget {
 }
 
 class PomodoroTimer extends StatefulWidget {
+  const PomodoroTimer({super.key});
+
   @override
   _PomodoroTimerState createState() => _PomodoroTimerState();
 }
@@ -82,9 +81,28 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
     return Scaffold(
       backgroundColor: ColorConstants.lightGrey,
       appBar: AppBar(
-        title: Text("Pomodoro Timer"),
+        // leading: IconButton(
+        //   onPressed: () {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(builder: (context) => PomodoroSettings()),
+        //     );
+        //   },
+        //   icon: Icon(Icons.settings_applications_sharp),
+        // ),
         backgroundColor: ColorConstants.lightGrey,
         centerTitle: true,
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {
+        //       Navigator.pushReplacement(
+        //         context,
+        //         MaterialPageRoute(builder: (context) => MenuScreen()),
+        //       );
+        //     },
+        //     icon: Icon(Icons.close),
+        //   ),
+        //],
       ),
       body: Center(
         child: Column(
@@ -99,33 +117,47 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: 200,
-                  width: 200,
+                  height: 250,
+                  width: 250,
                   child: CircularProgressIndicator(
                     value:
                         remainingTime /
                         (isWorkSession ? workDuration : breakDuration),
-                    strokeWidth: 10,
+                    strokeWidth: 15,
                     valueColor: AlwaysStoppedAnimation<Color>(
                       isWorkSession ? Colors.lightBlue : Colors.blue,
                     ),
                     backgroundColor: Colors.white24,
                   ),
                 ),
-                Text(
-                  formatTime(remainingTime),
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                Column(
+                  children: [
+                    Text(
+                      formatTime(remainingTime),
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue[300],
+                      ),
+                    ),
+                    Text(
+                      "Focus",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue[300],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
             SizedBox(height: 30),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+
               children: [
+                SizedBox(width: 80),
                 // ElevatedButton(
                 //   onPressed: startPauseTimer,
                 //   child: Icon(isRunning ? Icons.pause : Icons.play_arrow),
@@ -166,70 +198,6 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
           ],
         ),
       ),
-      bottomNavigationBar: bottomNavBar(),
     );
   }
-}
-
-Widget bottomNavBar() {
-  return Scaffold(
-    backgroundColor: ColorConstants.lightGrey,
-    body: PomodoroTimer(),
-    floatingActionButton: FloatingActionButton(
-      shape: CircleBorder(),
-      backgroundColor: Colors.blue,
-      onPressed: () {},
-      child: Icon(Icons.add, color: Colors.white),
-    ),
-    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    bottomNavigationBar: Container(
-      height: 100,
-      child: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        onTap: (value) {},
-
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: ColorConstants.unSelectGrey),
-            activeIcon: Icon(Icons.home, color: ColorConstants.selectBlue),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.calendar_month_rounded,
-              color: ColorConstants.unSelectGrey,
-            ),
-            activeIcon: Icon(
-              Icons.calendar_month_rounded,
-              color: ColorConstants.selectBlue,
-            ),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.grid_view_rounded,
-              color: ColorConstants.unSelectGrey,
-            ),
-            activeIcon: Icon(
-              Icons.grid_view_rounded,
-              color: ColorConstants.selectBlue,
-            ),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_4_outlined,
-              color: ColorConstants.unSelectGrey,
-            ),
-            activeIcon: Icon(
-              Icons.person_4_outlined,
-              color: ColorConstants.selectBlue,
-            ),
-            label: "",
-          ),
-        ],
-      ),
-    ),
-  );
 }

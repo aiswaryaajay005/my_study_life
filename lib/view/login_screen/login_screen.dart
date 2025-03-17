@@ -48,51 +48,56 @@ class LoginScreen extends StatelessWidget {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 50),
-                    Text(
-                      "Log in with email",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.black,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 50),
+                      Text(
+                        "Log in with email",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                          color: ColorConstants.black,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 40),
-                    ReusableFormField(hintText: "Your Email"),
-                    ReusableFormField(
-                      hintText: "Password",
-                      suffixIcon: Icon(Icons.visibility_off),
-                    ),
-                    CustomButton(
-                      buttonText: "Sign In",
-                      onButtonPressed: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => BottomNavbarScreen(),
-                          ),
-                          (route) => false,
-                        );
-                      },
-                    ),
-                    SizedBox(height: 36),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ForgotPassword(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Forgot Password?",
-                        style: TextStyle(color: ColorConstants.darkblue),
+                      SizedBox(height: 40),
+                      ReusableFormField(hintText: "Your Email"),
+                      SizedBox(height: 10),
+                      ReusableFormField(
+                        hintText: "Password",
+                        suffixIcon: Icon(Icons.visibility_off),
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 10),
+                      CustomButton(
+                        buttonText: "Sign In",
+                        onButtonPressed: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BottomNavbarScreen(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                      ),
+                      SizedBox(height: 36),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ForgotPassword(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Forgot Password?",
+                          style: TextStyle(color: ColorConstants.darkblue),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

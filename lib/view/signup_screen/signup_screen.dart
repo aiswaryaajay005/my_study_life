@@ -46,31 +46,41 @@ class SignupScreen extends StatelessWidget {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 50),
-                    Text(
-                      "Sign up with email",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.black,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 50),
+                      Text(
+                        "Sign up with email",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                          color: ColorConstants.black,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 40),
-                    ReusableFormField(hintText: "Your Name"),
-                    ReusableFormField(hintText: "Your Email"),
-                    ReusableFormField(
-                      hintText: "New Password",
-                      suffixIcon: Icon(Icons.visibility_off),
-                    ),
-                    ReusableFormField(
-                      hintText: "Confirm Password",
-                      suffixIcon: Icon(Icons.visibility_off),
-                    ),
-                    CustomButton(buttonText: "Sign Up", onButtonPressed: () {}),
-                    SizedBox(height: 36),
-                  ],
+                      SizedBox(height: 40),
+                      ReusableFormField(hintText: "Your Name"),
+                      SizedBox(height: 10),
+                      ReusableFormField(hintText: "Your Email"),
+                      SizedBox(height: 10),
+                      ReusableFormField(
+                        hintText: "New Password",
+                        suffixIcon: Icon(Icons.visibility_off),
+                      ),
+                      SizedBox(height: 10),
+                      ReusableFormField(
+                        hintText: "Confirm Password",
+                        suffixIcon: Icon(Icons.visibility_off),
+                      ),
+                      SizedBox(height: 10),
+                      CustomButton(
+                        buttonText: "Sign Up",
+                        onButtonPressed: () {},
+                      ),
+                      SizedBox(height: 36),
+                    ],
+                  ),
                 ),
               ),
             ),
